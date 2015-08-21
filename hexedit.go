@@ -40,6 +40,12 @@ func redraw_all() {
         tbprint(0,6, termbox.ColorBlue,   coldef,   "Meow");
         tbprint(0,7, termbox.ColorYellow, coldef,   "Meow");
 
+        for i := 0; i < 10; i++ {
+            line, isPrefix, err := hexfile.ReadLine();
+            tbprint(0,8 + i, termbox.ColorBlue, coldef,   line);
+        }
+
+
 	termbox.Flush()
 }
 
