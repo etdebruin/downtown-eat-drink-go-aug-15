@@ -30,18 +30,9 @@ func mouse_button_num(k termbox.Key) int {
 func redraw_all() {
 	const coldef = termbox.ColorDefault
 	termbox.Clear(coldef, coldef)
+
 	tbprint(0, 0, termbox.ColorMagenta, coldef, "Press 'q' to quit")
 	tbprint(0, 1, coldef, coldef, current)
-	switch curev.Type {
-	case termbox.EventKey:
-		tbprint(0, 2, coldef, coldef,
-			fmt.Sprintf("EventKey: k: %d, c: %c, mod: %d", curev.Key, curev.Ch, curev.Mod))
-	case termbox.EventMouse:
-		tbprint(0, 2, coldef, coldef,
-			fmt.Sprintf("EventMouse: x: %d, y: %d, b: %d", curev.MouseX, curev.MouseY, mouse_button_num(curev.Key)))
-	case termbox.EventNone:
-		tbprint(0, 2, coldef, coldef, "EventNone")
-	}
 	tbprint(0, 3, coldef, coldef, fmt.Sprintf("%d", curev.N))
         
         tbprint(0,4, termbox.ColorRed,    coldef,   "Meow");
